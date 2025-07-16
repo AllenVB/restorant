@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yemekler - Akşam Yemeği Restoranı</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #ffb347 0%, #ff5e62 100%), url('bonfile.jpg') no-repeat center center fixed;
+            background-blend-mode: multiply;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <nav class="dropdown-nav">
+        <button class="menu-btn">Menü <span class="menu-icon">&#9776;</span></button>
+        <div class="dropdown-content">
+            <ul class="dropdown-list">
+                <li><a href="yemekler.html">Yemekler</a></li>
+                <li><a href="ara-sicaklar.html">Ara Sıcaklar</a></li>
+                <li><a href="tatlilar.html">Tatlılar</a></li>
+                <li><a href="icecekler.html">İçecekler</a></li>
+                <li><a href="alkollu-icecekler.html">Alkollü İçecekler</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="home-nav">
+        <a href="index.html" class="home-btn">Ana Sayfa</a>
+    </div>
+    <main>
+        <section class="center-content">
+            <h1>Yemekler</h1>
+            <p class="subtitle">Özenle hazırlanmış ana yemeklerimiz</p>
+        </section>
+        <section class="menu-detail-section">
+            <div class="menu-item">
+                <h3>Izgara Bonfile</h3>
+                <p>Özel soslu, patates püresi ve mevsim sebzeleri ile</p>
+                <span class="price">₺1080</span>
+            </div>
+            <div class="menu-item">
+                <h3>Fırında Somon</h3>
+                <p>Limon soslu, pilav ve taze sebzeler ile</p>
+                <span class="price">₺960</span>
+            </div>
+            <div class="menu-item">
+                <h3>Risotto</h3>
+                <p>Mantarlı, parmesan peyniri ile</p>
+                <span class="price">₺720</span>
+            </div>
+            <div class="menu-item">
+                <h3>Mevsim Salata</h3>
+                <p>Taze yeşillikler, mevsim meyveleri ve özel sos</p>
+                <span class="price">₺480</span>
+            </div>
+        </section>
+        <section class="reservation-section">
+            <button class="reservation-btn">Rezervasyon Yap</button>
+        </section>
+    </main>
+    <footer>
+        <section class="about-section">
+            <h2>Hakkımızda</h2>
+            <p>Şık atmosferimizde, özenle hazırlanmış akşam yemekleri ve seçkin içecekler ile hizmetinizdeyiz. Sadece rezervasyon ile çalışıyoruz.</p>
+        </section>
+        <p>&copy; 2024 Akşam Yemeği Restoranı. Tüm hakları saklıdır.</p>
+    </footer>
+    <script>
+        // Dropdown menü aç/kapa
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            document.querySelector('.dropdown-content').classList.toggle('show');
+        });
+        // Menü dışında tıklanınca kapansın
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-btn') && !event.target.matches('.menu-icon')) {
+                var dropdowns = document.getElementsByClassName('dropdown-content');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

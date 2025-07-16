@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervasyon - Akşam Yemeği Restoranı</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #ffb347 0%, #ff5e62 100%), url('https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-blend-mode: multiply;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <nav class="dropdown-nav">
+        <button class="menu-btn">Menü <span class="menu-icon">&#9776;</span></button>
+        <div class="dropdown-content">
+            <ul class="dropdown-list">
+                <li><a href="yemekler.html">Yemekler</a></li>
+                <li><a href="ara-sicaklar.html">Ara Sıcaklar</a></li>
+                <li><a href="tatlilar.html">Tatlılar</a></li>
+                <li><a href="icecekler.html">İçecekler</a></li>
+                <li><a href="alkollu-icecekler.html">Alkollü İçecekler</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="home-nav">
+        <a href="index.html" class="home-btn">Ana Sayfa</a>
+    </div>
+    <main>
+        <section class="center-content">
+            <h1>Rezervasyon</h1>
+            <p class="subtitle">Unutulmaz bir akşam yemeği için rezervasyon yapın</p>
+        </section>
+        <section class="reservation-form-section">
+            <form class="reservation-form">
+                <div class="form-group">
+                    <label for="name">Ad Soyad *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-posta *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefon *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Tarih *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Saat *</label>
+                        <select id="time" name="time" required>
+                            <option value="">Saat seçin</option>
+                            <option value="18:00">18:00</option>
+                            <option value="18:30">18:30</option>
+                            <option value="19:00">19:00</option>
+                            <option value="19:30">19:30</option>
+                            <option value="20:00">20:00</option>
+                            <option value="20:30">20:30</option>
+                            <option value="21:00">21:00</option>
+                            <option value="21:30">21:30</option>
+                            <option value="22:00">22:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guests">Kişi Sayısı *</label>
+                        <select id="guests" name="guests" required>
+                            <option value="">Kişi sayısı seçin</option>
+                            <option value="1">1 Kişi</option>
+                            <option value="2">2 Kişi</option>
+                            <option value="3">3 Kişi</option>
+                            <option value="4">4 Kişi</option>
+                            <option value="5">5 Kişi</option>
+                            <option value="6">6 Kişi</option>
+                            <option value="7">7 Kişi</option>
+                            <option value="8">8 Kişi</option>
+                            <option value="9">9 Kişi</option>
+                            <option value="10">10 Kişi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="table">Masa Tercihi</label>
+                        <select id="table" name="table">
+                            <option value="">Tercih yok</option>
+                            <option value="window">Pencere Kenarı</option>
+                            <option value="garden">Bahçe</option>
+                            <option value="inside">İç Mekan</option>
+                            <option value="private">Özel Masa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Özel Notlar</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Özel istekleriniz, alerjileriniz veya özel durumlarınız varsa buraya yazabilirsiniz..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Rezervasyon Yap</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <section class="about-section">
+            <h2>Hakkımızda</h2>
+            <p>Şık atmosferimizde, özenle hazırlanmış akşam yemekleri ve seçkin içecekler ile hizmetinizdeyiz. Sadece rezervasyon ile çalışıyoruz.</p>
+        </section>
+        <p>&copy; 2024 Akşam Yemeği Restoranı. Tüm hakları saklıdır.</p>
+    </footer>
+    <script>
+        // Dropdown menü aç/kapa
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            document.querySelector('.dropdown-content').classList.toggle('show');
+        });
+        // Menü dışında tıklanınca kapansın
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-btn') && !event.target.matches('.menu-icon')) {
+                var dropdowns = document.getElementsByClassName('dropdown-content');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+        
+        // Form gönderimi
+        document.querySelector('.reservation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Rezervasyon talebiniz alınmıştır. En kısa sürede sizinle iletişime geçeceğiz.');
+        });
+    </script>
+</body>
+</html> 
