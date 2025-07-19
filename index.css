@@ -1,0 +1,8 @@
+body {
+    background: linear-gradient(120deg, #ffb347 0%, #ff5e62 100%), url('index.jpg') no-repeat center center fixed;
+    background-blend-mode: multiply;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+} 
